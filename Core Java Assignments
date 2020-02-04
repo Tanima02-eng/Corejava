@@ -1,5 +1,6 @@
 ##Program 1-Write a program to print factorial of N ( without using any loop)
 
+Answer:
 class Factorial{
 static int fact(int n){
 if(n==1)
@@ -14,10 +15,11 @@ System.out.println(factorial);
 }
 }
 
-##Program 2-2.	There is an animal class which has the common characteristics of all animals. Dog, Horse, Cat are animals(sub-class). 
+##Program 2-There is an animal class which has the common characteristics of all animals. Dog, Horse, Cat are animals(sub-class). 
 Each can shout, but each shout is different. Use polymorphism to create objects of same and using an animal variable, 
 make each of the animals shout
 
+Answer:
 public class Animal {
     public void shout() {
      System.out.println("The animal is shouting");
@@ -40,11 +42,179 @@ public class Cat extends Animal{
 }
 public class Polymorphism{
     public static void main(String [] args){
-    Animal[] animals=new Animal[3];
-    animals[0]=new Dog();
-    animals[1]=new Horse();
-    animals[2]=new Cat();
-    for(int i=0;i<animals.length;i++)
-     animals[i].shout();
+    Animal animal1=new Dog();
+    animal1.shout();
+    Animal animal2=new Horse();
+    animal2.shout();
+    Animal animal3=new Cat();
+    animal3.shout();
     }
 } 
+
+##Program 3-Create an abstract class Instrument which is having the abstract function play.  
+Create three more sub classes from Instrument which is Piano, Flute, Guitar. 
+Override the play method inside all three classes printing a message 
+            “Piano is playing  tan tan tan tan  ”  for Piano class
+            “Flute is playing  toot toot toot toot”  for Flute class
+            “Guitar is playing  tin  tin  tin ”  for Guitar class 
+            Create an array of 10 Instruments.
+            Assign different type of instrument to Instrument reference.
+            Check for the polymorphic behavior of  play method.
+            
+Answer:  
+abstract class Instrument{
+abstract void play();
+}
+class Piano extends Instrument{
+    public void play() {
+     System.out.println("Piano is playing  tan tan tan tan");
+    }
+}
+class Flute extends Instrument{
+    public void play() {
+     System.out.println("Flute is playing  toot toot toot toot");
+    }
+}
+class Guitar extends Instrument{
+    public void play() {
+     System.out.println("Guitar is playing  tin  tin  tin");
+    }
+}
+public class Abstract{
+    public static void main(String [] args){
+    Instrument ins[]=new Instrument[3];
+    ins[0]=new Piano();
+    ins[1]=new Flute();
+    ins[2]=new Guitar();
+    for(int i=0;i<ins.length;i++)
+     ins[i].play();
+    }
+    }
+    
+##Program 4-Write an interface called Playable, with a method void play();
+Let this interface be placed in a package called music.Write a class called Veena which implements Playable interface. Let this class be placed in a package music.string.Write a class called Saxophone which implements Playable interface. Let this class be placed in a package music.wind.Write another class Test in a package called live. Then,
+a. Create an instance of Veena and call play() method
+b. Create an instance of Saxophone and call play() method
+c. Place the above instances in a variable of type Playable and then call play().
+
+Answer:
+
+interface Playable
+{
+   public void play();
+}
+
+class Veena implements Playable{
+public class MusicMain {
+    public static void main(String args[]) {
+        Veena veena = new Veena();
+        veena.play();
+        Saxophone saxophone = new Saxophone();
+        saxophone.play();
+        Playable pv, ps; 
+        pv = new Veena();
+        ps = new Saxophone();
+        pv.play(); 
+        ps.play();
+        }
+     }
+     }
+     
+ ##Program 5-Write a program to accept name and age of a person from the command                    
+ prompt(passed as arguments when you execute the class) and ensure that the age entered is >=18 and < 60.
+ Display proper error messages. 
+ The program must exit gracefully after displaying the error message in case the arguments passed are not proper. 
+ (Hint : Create a user defined exception class for handling errors.)    
+   
+   
+ class Userdefinedexceptionage extends Exception{
+	public String toString() {
+		return ("Age must be >=18 and <60");
+	}
+}
+public class ProperAge {
+	public static void main(String[] args) {
+        String name = args[0];
+		int age = Integer.parseInt(args[1]);
+		if(age>=18 && age<60)
+			System.out.println(name+" has proper Age");
+		else
+			try {
+				throw new Userdefinedexceptionage();
+			}
+			catch(Userdefinedexceptionage exception) {
+				exception.printStackTrace();
+			}
+         }
+         }
+         
+   ##Program 6-Write  a  program  to  assign  the  current  thread  to  t1.  Change  the  name  of  the  thread  to  MyThread.  Display  the  changed  name  of  the  thread.  
+   Also  it  should  display  the  current  time.  Put  the  thread  to  sleep  for  10  seconds  and  
+   display  the  time  again.
+   
+Answer:
+import java.io.*;
+class ThreadName extends Thread  
+{ 
+    ThreadName(String name) 
+    { 
+        super(name); 
+    } 
+} 
+class Threaddisplay 
+{ 
+    public static void main (String[] args)  
+    { 
+        ThreadName t1 = new ThreadName("Thread1");  
+        System.out.println("Thread 1: " + t1.getName()); 
+        t1.start(); 
+        long start = System.currentTimeMillis();
+        Thread.sleep(1000);
+        System.out.println("current time in ms = "+start);
+        System.out.println("Sleep time in ms = "+(System.currentTimeMillis()-start));
+        
+     }
+        
+    }
+   ##Program 7-Create an ArrayList of Employee( id,name,address,sal) objects and search for particular Employee object based on id 
+   number and name.
+   
+   Answer:
+   
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+class Employees {
+	private int id;
+	private String name;
+	private String address;
+	private Double sal;
+public Employees(int id, String name, String address, Double sal) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.sal = sal;
+	}		
+	public int getId() {
+		return id;
+	}
+	public String toString() {
+		return "Employees [id=" + id + ", name=" + name + ", address=" + address + ", salary=" + sal + "]";
+	}
+}
+public class assignment7 {
+     public static void main(String[] args) {
+		List<Employees> list = new ArrayList<>();
+		list.add(new Employees(1, "Tanima", "Kolkata", 20000.0));
+		list.add(new Employees(2, "Ar", "Howrah", 30000.0));
+		Iterator<Employees> it = list.iterator();
+		int Id = 1;
+		while (it.hasNext()) {
+			Employees empl = it.next();
+			if (empl.getId() == Id)
+				System.out.println(empl);
+		}
+	}
+
+}
