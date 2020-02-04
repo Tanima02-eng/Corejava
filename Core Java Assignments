@@ -1,1 +1,50 @@
+##Program 1-Write a program to print factorial of N ( without using any loop)
 
+class Factorial{
+static int fact(int n){
+if(n==1)
+return 1;
+return n*fact(n-1);
+}
+}
+public class Program1{
+public static void main(String args[]){
+int factorial=fact(3);
+System.out.println(factorial);
+}
+}
+
+##Program 2-2.	There is an animal class which has the common characteristics of all animals. Dog, Horse, Cat are animals(sub-class). 
+Each can shout, but each shout is different. Use polymorphism to create objects of same and using an animal variable, 
+make each of the animals shout
+
+public class Animal {
+    public void shout() {
+     System.out.println("The animal is shouting");
+    }
+}
+public class Dog extends Animal{
+     public void shout() {
+     System.out.println("The animal is barking");
+    }
+}
+public class Horse extends Animal{
+   public void shout() {
+   System.out.println("The animal is neighing");
+    }
+}
+public class Cat extends Animal{
+    public void shout() {
+     System.out.println("The animal is mewing");
+    }
+}
+public class Polymorphism{
+    public static void main(String [] args){
+    Animal[] animals=new Animal[3];
+    animals[0]=new Dog();
+    animals[1]=new Horse();
+    animals[2]=new Cat();
+    for(int i=0;i<animals.length;i++)
+     animals[i].shout();
+    }
+} 
